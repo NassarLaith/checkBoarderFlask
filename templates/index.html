@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkerboard</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        #box1{
+        background-color: {{colorOne}};
+        }
+        #box2{
+        background-color: {{colorTwo}};
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        {% for i in range(length): %}
+            <div id="containerBox">
+            {% for x in range(width): %}
+                <div id="box{{ (i+x)%2+1 }}"></div>
+            {% endfor %}
+            </div>
+            <br>
+        {% endfor %}
+    </div>
+</body>
+</html>
